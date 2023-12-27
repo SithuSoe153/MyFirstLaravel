@@ -1,0 +1,6 @@
+a user hasmany blogs
+
+a blog belongs to a user
+
+==
+a make:model Post -mc

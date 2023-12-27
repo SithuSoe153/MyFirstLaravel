@@ -1,0 +1,11 @@
+.container{
+margin: auto;
+max-width: 600px;
+}
+
+.bg-green{
+    background-color: rgb(179, 225, 180);
+    padding: 5px;
+    margin: 10px;
+border-radius: 10px;
+}
