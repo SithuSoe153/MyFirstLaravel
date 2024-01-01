@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    function scopeFilter($query, $filters )
+    function scopeFilter($query, $filters)
     {
 
         // First way
@@ -31,12 +31,30 @@ class Blog extends Model
 
         //Second way + logical grouping
         $query
-            ->when($filters['search'] ?? null, function ($query) use ($filters){
+            ->when($filters['search'] ?? null, function ($query) use ($filters) {
                 $query
                     ->where(function ($query) use ($filters) {
                         $query->where('title', 'Like', '%' . $filters['search'] . '%')
                             ->orWhere('body', 'Like', '%' . $filters['search'] . '%');
                     });
+            });
+
+        $query
+            ->when($filters['category'] ?? null, function ($query) use ($filters) {
+                // input - category's slug -> output ->category's slug's blogs
+                // whereHas
+                $query->whereHas('category', function ($catQuery) use ($filters) {
+                    $catQuery->where('slug', $filters['category']);
+                });
+            });
+
+        $query
+            ->when($filters['author'] ?? null, function ($query) use ($filters) {
+                // input - category's slug -> output ->category's slug's blogs
+                // whereHas
+                $query->whereHas('author', function ($autQuery) use ($filters) {
+                    $autQuery->where('username', $filters['author']);
+                });
             });
     }
 

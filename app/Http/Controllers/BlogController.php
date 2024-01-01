@@ -12,7 +12,6 @@ class BlogController extends Controller
 
     function index()
     {
-
         return view('blogs.index', [
             'blogs' => Blog::with('category', 'author')
                 ->latest()
@@ -41,12 +40,12 @@ class BlogController extends Controller
 
     }
 
-    public function showAuthorBlogs(User $author)
-    {
-        return view('blogs.index', [
-            'blogs' => $author->blogs->load('category', 'author')
-        ]);
-    }
+    // public function showAuthorBlogs(User $author)
+    // {
+    //     return view('blogs.index', [
+    //         'blogs' => $author->blogs->load('category', 'author')
+    //     ]);
+    // }
 
 
     // function showCatBlogs(Category $category)
@@ -59,11 +58,11 @@ class BlogController extends Controller
     //     );
     // }
 
-    function showCatBlogs(Category $category)
-    {
-        return view('blogs.index', [
-            'blogs' => $category->posts->load('category', 'author'),
-            'categories' => Category::all(),
-        ]);
-    }
+    // function showCatBlogs(Category $category)
+    // {
+    //     return view('blogs.index', [
+    //         'blogs' => $category->posts->load('category', 'author'),
+    //         'categories' => Category::all(),
+    //     ]);
+    // }
 }
