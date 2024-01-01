@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    function scopeSearch($query, $searchValue)
+    function scopeFilter($query, $filters )
     {
 
         // First way
@@ -30,12 +30,12 @@ class Blog extends Model
 
 
         //Second way + logical grouping
-        return $query
-            ->when($searchValue, function ($query) use ($searchValue) {
+        $query
+            ->when($filters['search'] ?? null, function ($query) use ($filters){
                 $query
-                    ->where(function ($query) use ($searchValue) {
-                        $query->where('title', 'Like', '%' . $searchValue . '%')
-                            ->orWhere('body', 'Like', '%' . $searchValue . '%');
+                    ->where(function ($query) use ($filters) {
+                        $query->where('title', 'Like', '%' . $filters['search'] . '%')
+                            ->orWhere('body', 'Like', '%' . $filters['search'] . '%');
                     });
             });
     }

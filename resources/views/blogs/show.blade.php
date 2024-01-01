@@ -2,7 +2,7 @@
 
     <div class="container">
 
-        <h1>{{$blog->title}}</h1>
+        <h2>{{$blog->title}}</h2>
         <p>{!!$blog->body!!}</p>
         <p>{{$blog->created_at}}</p>
 

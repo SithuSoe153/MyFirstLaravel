@@ -16,8 +16,13 @@ class BlogController extends Controller
         return view('blogs.index', [
             'blogs' => Blog::with('category', 'author')
                 ->latest()
-                ->search(request('query'))
-                ->get()
+                ->filter([
+                    'search' => request('query'),
+                    'author' => request('author'),
+                    'category' => request('category'),
+                ]) //query, category, author
+                ->get(),
+            'categories' => Category::all(),
         ]);
     }
 
@@ -53,4 +58,12 @@ class BlogController extends Controller
     //         ['blogs' => $category->blogs]
     //     );
     // }
+
+    function showCatBlogs(Category $category)
+    {
+        return view('blogs.index', [
+            'blogs' => $category->posts->load('category', 'author'),
+            'categories' => Category::all(),
+        ]);
+    }
 }

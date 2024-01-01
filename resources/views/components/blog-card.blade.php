@@ -2,7 +2,7 @@
 
 <div>
 
-    <h1><a href="/blogs/{{ $blog->slug }}">{{ $blog->title }}</a></h1>
+    <h2><a href="/blogs/{{ $blog->slug }}">{{ $blog->title }}</a></h2>
 
     <p>Author - <a href="/author/{{$blog->author->username}}">{{$blog->author->name}}</a> </p>
     <p>Category - <a href="/categories/{{$blog->category->slug}}">{{$blog->category->name}}</a> </p>

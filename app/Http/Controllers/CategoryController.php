@@ -23,13 +23,11 @@ class CategoryController extends Controller
         ]);
     }
 
-    function showCatBlogs(Category $category)
-    {
-        return view(
-            'blogs.index',
-            [
-                'blogs' => $category->blogs->load('category')
-            ]
-        );
-    }
+    // public function showCatBlogs(Category $category)
+    // {
+    //     return view('blogs.index', [
+    //         'blogs' => $category->blogs,
+    //         'category' => $category,
+    //     ]);
+    // }
 }
