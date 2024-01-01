@@ -15,13 +15,8 @@ class BlogController extends Controller
         return view('blogs.index', [
             'blogs' => Blog::with('category', 'author')
                 ->latest()
-                ->filter([
-                    'search' => request('query'),
-                    'author' => request('author'),
-                    'category' => request('category'),
-                ]) //query, category, author
+                ->filter(request(['search', 'author', 'category'])) //query, category, author
                 ->get(),
-            'categories' => Category::all(),
         ]);
     }
 

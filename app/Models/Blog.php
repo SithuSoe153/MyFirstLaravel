@@ -44,7 +44,7 @@ class Blog extends Model
                 // input - category's slug -> output ->category's slug's blogs
                 // whereHas
                 $query->whereHas('category', function ($catQuery) use ($filters) {
-                    $catQuery->where('slug', $filters['category']);
+                    $catQuery->whereSlug($filters['category']);
                 });
             });
 
@@ -53,7 +53,7 @@ class Blog extends Model
                 // input - category's slug -> output ->category's slug's blogs
                 // whereHas
                 $query->whereHas('author', function ($autQuery) use ($filters) {
-                    $autQuery->where('username', $filters['author']);
+                    $autQuery->whereUsername($filters['author']);
                 });
             });
     }
