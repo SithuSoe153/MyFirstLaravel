@@ -1,5 +1,8 @@
 <x-layout>
 
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
     <div class="container">
 
         <form>
@@ -10,13 +13,14 @@
 
         </form>
 
-        <x-category/>
+        <x-category />
 
         @forelse ($blogs as $blog)
             <x-blog-card :blog='$blog' />
         @empty
             <p> no search result found </p>
         @endforelse
+        {{ $blogs->links() }}
 
     </div>
 

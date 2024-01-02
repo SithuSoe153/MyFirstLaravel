@@ -15,12 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory()->count(5)->create();
-        $user1 = User::factory()->create(['name'=>'Sithu Soe']);
-        $user2 = User::factory()->create(['name'=>'Kyaw Gyi']);
 
-        Blog::factory(2)->create(['user_id' => $user1->id ]);
-        Blog::factory()->create(['user_id' => $user2->id ]);
+        Blog::factory()->count(100)->create();
+
+        // User::factory()->count(5)->create();
+        // $user1 = User::factory()->create(['name'=>'Sithu Soe']);
+        // $user2 = User::factory()->create(['name'=>'Kyaw Gyi']);
+
+        // Blog::factory(2)->create(['user_id' => $user1->id ]);
+        // Blog::factory()->create(['user_id' => $user2->id ]);
 
         // Blog::factory()->count(5)->create();
 
