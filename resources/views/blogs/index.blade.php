@@ -7,8 +7,16 @@
 
         <form>
 
-            <label for="query">Search: </label>
-            <input value="{{ request('query') }}" name="query" type="text">
+            @if (request('category'))
+                <input type="hidden" name="category" value="{{ request('category') }}">
+            @endif
+
+            @if (request('author'))
+                <input type="hidden" name="author" value="{{ request('author') }}">
+            @endif
+
+            <label for="search">Search: </label>
+            <input value="{{ request('search') }}" name="search" type="text">
             <button type="submit">Search Now</button>
 
         </form>

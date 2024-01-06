@@ -17,7 +17,7 @@ class BlogController extends Controller
                 ->latest()
                 ->filter(request(['search', 'author', 'category'])) //query, category, author
                 // ->get(),
-                ->paginate(6),
+                ->paginate(3),
         ]);
     }
 

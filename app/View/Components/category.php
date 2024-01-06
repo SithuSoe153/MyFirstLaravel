@@ -24,6 +24,7 @@ class category extends Component
     {
         return view('components.category',[
             'categories' => ModelsCategory::all(),
+            'currentCategory' => ModelsCategory::whereSlug(request('category'))->first(),
         ]);
     }
 }
