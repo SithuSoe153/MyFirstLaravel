@@ -27,29 +27,33 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
+<style>
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    main {
+        flex: 1;
+    }
+</style>
+
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </nav>
 
+    <x-navbar />
+
+    @if (session()->has('success'))
+        <div class="alert alert-success role=alert">
+            {{ session('success') }}
+        </div>
+    @endif
 
     {{ $slot }}
 
 
 
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
-
-    </footer>
+    <x-footer />
 
 
 </body>
