@@ -68,7 +68,17 @@ class Blog extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
+    }
+
+    public function subscribedUsers()
+    {
+        return $this->belongsToMany(User::class, 'blogs_users');
+    }
+
+    public function isSubscribed(){
+            return $this->subscribedUsers->contains('id', auth()->id());
     }
 }

@@ -22,17 +22,15 @@
                                 <label for="HCI"> HCI </label>
                             </td>
                             <td>
-                                <input type="text" name="HCI" class="form-control" value="{{ old('HCI') }}"
-                                    pattern="\d*" inputmode="numeric">
+                                <input type="text" name="HCI" class="form-control" value="{{ old('HCI') }}" pattern="\d*" inputmode="numeric">
                             </td>
                         </tr>
                         <tr>
                             <td class="font-weight-bold text-center">
-                                <label for="Mobile"> Mobile </label>
+                                <label for="Mobile"> M / ICM </label>
                             </td>
                             <td>
-                                <input type="text" name="Mobile" class="form-control" value="{{ old('Mobile') }}"
-                                    pattern="\d*" inputmode="numeric">
+                                <input type="text" name="Mobile" class="form-control" value="{{ old('Mobile') }}" pattern="\d*" inputmode="numeric">
                             </td>
                         </tr>
                         <tr>
@@ -40,8 +38,7 @@
                                 <label for="EWSD"> EWSD </label>
                             </td>
                             <td>
-                                <input type="text" name="EWSD" class="form-control" value="{{ old('EWSD') }}"
-                                    pattern="\d*" inputmode="numeric">
+                                <input type="text" name="EWSD" class="form-control" value="{{ old('EWSD') }}" pattern="\d*" inputmode="numeric">
                             </td>
                         </tr>
                         <tr>
@@ -49,8 +46,7 @@
                                 <label for="RM"> RM </label>
                             </td>
                             <td>
-                                <input type="text" name="RM" class="form-control" value="{{ old('RM') }}"
-                                    pattern="\d*" inputmode="numeric">
+                                <input type="text" name="RM" class="form-control" value="{{ old('RM') }}" pattern="\d*" inputmode="numeric">
                             </td>
                         </tr>
                         <tr>
@@ -58,8 +54,7 @@
                                 <label for="Project">Project</label>
                             </td>
                             <td>
-                                <input type="text" name="Project" class="form-control" value="{{ old('Project') }}"
-                                    pattern="\d*" inputmode="numeric">
+                                <input type="text" name="Project" class="form-control" value="{{ old('Project') }}" pattern="\d*" inputmode="numeric">
                             </td>
                         </tr>
                         <tr>
@@ -70,9 +65,9 @@
                         </tr>
                     </table>
                     @if (session()->has('result'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('result') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('result') }}
+                    </div>
                     @endif
                 </div>
             </div>

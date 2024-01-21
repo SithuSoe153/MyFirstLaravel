@@ -7,6 +7,21 @@
                 <h2 class="card-title">{{ $blog->title }}</h2>
                 <p class="card-text">{!! $blog->body !!}</p>
                 <p class="card-text"><small class="text-muted">{{ $blog->created_at->diffForHumans() }}</small></p>
+                @auth
+
+                    <form action="{{route('blogs.toggle', $blog->slug)}}" method="POST">@csrf
+
+                        <div style="display: flex; justify-content: flex-end;">
+                            @if ($blog->isSubscribed())
+                                <button type="submit" class="btn btn-alert">Subscribed</button>
+                            @else
+                                <button type="submit" class="btn btn-danger">Subscribe</button>
+                            @endif
+                        </div>
+
+                    </form>
+                @endauth
+
             </div>
         </div>
 

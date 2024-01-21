@@ -8,10 +8,10 @@
             href="/?author={{ $blog->author->username }}
         {{ request('search')
             ? "
-                                                                                        &search=" . request('search')
+                                                                                                &search=" . request('search')
             : '' }}{{ request('author')
             ? "
-                                                                                        &author=" . request('author')
+                                                                                                &author=" . request('author')
             : '' }} "">{{ $blog->author->name }}</a>
     </p>
     <p>Category - <a href="/categories/{{ $blog->category->slug }}">{{ $blog->category->name }}</a> </p>
