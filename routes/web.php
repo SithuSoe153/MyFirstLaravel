@@ -28,6 +28,9 @@ Route::middleware(AuthMiddleware::class)->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/blogs/{blog:slug}/comments', [CommentController::class, 'store']);
 
+    Route::put('/comments/update/{comment}', [CommentController::class, 'update'])->middleware('can:edit,comment');
+    Route::delete('/comments/delete/{comment}', [CommentController::class, 'delete'])->middleware('can:delete,comment');
+
     Route::post('/blogs/{blog:slug}/toggle-subscribe', [SubscribeController::class, 'toggle'])->name('blogs.toggle');
 });
 

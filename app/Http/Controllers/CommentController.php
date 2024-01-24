@@ -33,4 +33,21 @@ class CommentController extends Controller
 
         return back();
     }
+
+    public function update(Comment $comment)
+    {
+
+        $comment->update(request()->validate([
+            'body' => ['required'],
+        ]));
+
+
+        // return back();
+        return redirect('/blogs/' .  $comment->blog->slug);
+    }
+
+    public function delete(Comment $comment){
+        $comment->delete();
+        return back();
+    }
 }

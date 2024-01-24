@@ -24,13 +24,17 @@ class AdminController extends Controller
 
     public function store()
     {
+
         $cleanData = request()->validate([
             'title' => ['required', 'min:3', 'max:255'],
             'slug' => ['required', 'min:3', 'max:255', 'unique:blogs,slug'],
             'body' => ['required'],
+            'photo' => ['required', 'image'],
             'category_id' => ['required', Rule::exists('categories', 'id')],
         ]);
+
         $cleanData['user_id'] = auth()->id();
+        $cleanData['photo'] = request()->file('photo')->store('/images');
         Blog::create($cleanData);
 
         return redirect(route('admin.dashboard'));
