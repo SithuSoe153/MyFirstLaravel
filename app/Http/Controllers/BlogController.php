@@ -10,6 +10,30 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
 
+    // API START
+
+    function indexapi()
+    {
+        return [
+            'blogs' => Blog::with('category', 'author')
+                ->latest()
+                ->filter(request(['search', 'author', 'category'])) //query, category, author
+                ->paginate(3),
+        ];
+    }
+
+    function showapi(Blog $blog)
+    {
+
+        return [
+            'blog' => $blog
+        ];
+    }
+
+    // API END
+
+
+
     function index()
     {
         return view('blogs.index', [

@@ -366,7 +366,7 @@
   ),
   'filesystems' => 
   array (
-    'default' => 'local',
+    'default' => 'public',
     'disks' => 
     array (
       'local' => 
